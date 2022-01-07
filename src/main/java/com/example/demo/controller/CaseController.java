@@ -57,11 +57,10 @@ public class CaseController {
     	};
     	
     	DataFetcher<Case> fetcher3 = data->{
-//    		Case cases=Case.builder().build();
+
     		System.out.println(caseRepository.findAll());
     		final ObjectMapper mapper = new ObjectMapper(); // jackson's objectmapper
     		Case cases = mapper.convertValue(data.getArguments(), Case.class);
-//    		System.out.println(cases);
        		return caseRepository.save(cases);
     	};
     	

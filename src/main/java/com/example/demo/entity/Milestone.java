@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class Milestone {
-	
+
 	@Id
 	@Builder.Default
 	private String id= UUID.randomUUID().toString();

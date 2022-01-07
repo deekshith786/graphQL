@@ -1,9 +1,11 @@
 package com.example.demo.entity;
 
+import java.util.List;
 import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,19 +17,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Partner {
+@Table(name = "vaultCategory_table")
+public class VaultCategory {
 
 	@Id
 	@Builder.Default
 	private String id = UUID.randomUUID().toString();
 
-	private String email, avatar, firstName, lastName;
+	private String name;
 
-	private Integer numberOfNotifications;
-
-	private Integer numberOfOpenCases, numberOfPendingTasks;
-
-//	@ManyToOne(optional=true)
-//	private Case cases;
+	private List<VaultCategoryOption> vaultcategoryoption;
 
 }

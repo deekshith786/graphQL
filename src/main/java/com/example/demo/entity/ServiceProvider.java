@@ -32,5 +32,5 @@ public class ServiceProvider {
 	@OneToMany(targetEntity = Case.class,cascade = CascadeType.ALL)
 	 @JoinColumn(name ="provider_id",referencedColumnName = "id")
 	private List<Case> cases;
-	
+
 }
