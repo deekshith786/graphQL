@@ -1,0 +1,97 @@
+schema {
+ query: Query
+ mutation:Mutation
+}
+
+type Query {
+ getCaseById(id: String): Case
+ getAllCases:[Case]
+}
+
+
+
+type Case{
+    id:String,
+    description:String,
+    endImage:String,
+    name:String,
+    numberOfMileStones:Int,
+    numberOfFinishedMilestones:Int,
+    numberOfPartners:Int,
+    numberOfTasks:Int,
+    numberOfServiceProviders:Int,
+    numberOfPendingTasks:Int,
+     milestones:[Milestone],
+    partners:[Partner],
+    serviceProviders:[ServiceProvider]  
+}
+
+type Mutation{
+ addCase(id:String,
+     description:String,
+    endImage:String,
+    name:String,
+    numberOfMileStones:Int,
+    numberOfFinishedMilestones:Int,
+    numberOfPartners:Int,
+    numberOfTasks:Int,
+    numberOfServiceProviders:Int,
+    numberOfPendingTasks:Int,
+     milestones:[MilestoneInput],
+    partners:[PartnerInput],serviceProviders:[ServiceProviderInput] ):Case,
+}
+
+input ServiceProviderInput{
+    id:String,
+    avatar:String,
+    company:String,
+    name:String
+}
+input MilestoneInput{
+    id:String,
+    description:String,
+    name:String,
+    icon:String,
+    state:String,
+    numberOfTasks:Int,
+    numberOfPendingTasks:Int,
+    progress:Int  
+}
+input PartnerInput{
+    id:String,
+    email:String,
+    avatar:String,
+    firstName:String,
+    lastName:String,
+    numberOfNotifications:Int,
+    numberOfPendingTasks:Int,
+    numberOfOpenCases:Int    
+}
+type Milestone{
+    id:String,
+    description:String,
+    name:String,
+    icon:String,
+    state:String,
+    numberOfTasks:Int,
+    numberOfPendingTasks:Int,
+    progress:Int  
+}
+type Partner{
+    id:String,
+    email:String,
+    avatar:String,
+    firstName:String,
+    lastName:String,
+    numberOfNotifications:Int,
+    numberOfPendingTasks:Int,
+    numberOfOpenCases:Int    
+}
+
+type ServiceProvider{
+    id:String,
+    avatar:String,
+    company:String,
+    name:String,
+    cases:[Case] 
+}
