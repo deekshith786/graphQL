@@ -29,3 +29,4 @@ public class VaultCategoryOption {
 	private String name;
 
 }
+
