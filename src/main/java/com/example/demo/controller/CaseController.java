@@ -3,7 +3,6 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.Case;
 import com.example.demo.repository.CaseRepository;
-import com.example.demo.repository.MileStoneRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import graphql.ExecutionResult;
@@ -27,13 +26,11 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 
 @RestController
-@RequestMapping(path = "/college")
+@RequestMapping(path = "/case")
 public class CaseController {
 
 	@Autowired
 	private CaseRepository caseRepository;
-	@Autowired
-	private MileStoneRepository milestonesRepository;
 
 	@Value("classpath:graphql/schema.graphqls")
 	private Resource schemaResource;

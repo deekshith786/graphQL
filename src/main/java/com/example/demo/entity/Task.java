@@ -6,6 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import java.util.UUID;
 import lombok.AllArgsConstructor;
@@ -26,7 +27,7 @@ public class Task {
 	private String name,description,message,date;
 	private Integer numberOfSteps,numberOfStepsCompleted,taskState;
 	private boolean isApproved;
-	@OneToOne(targetEntity = ServiceProvider.class,cascade = CascadeType.ALL)
+	@ManyToOne(targetEntity = ServiceProvider.class,cascade = CascadeType.ALL)
 	@JoinColumn(name ="provider_id",referencedColumnName = "id")
 	private ServiceProvider serviceProvider;
 	@OneToOne(targetEntity = Case.class,cascade = CascadeType.ALL)
